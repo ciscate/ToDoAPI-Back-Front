@@ -26,6 +26,8 @@ public class TaskController {
         return this.taskService.createTask(taskInDTO);
     }
 
+
+
     @GetMapping
     public List<Task> getAll(){
         return this.taskService.getAll();
@@ -36,6 +38,7 @@ public class TaskController {
     public List<Task> getAllByStatus(@PathVariable("status")TaskStatus status){
         return this.taskService.getAllByStatus(status);
     }
+
 
     @PatchMapping("/mark_as_finished/{id}")
     public ResponseEntity<Void> markAsFinished(@PathVariable("id") Long id){

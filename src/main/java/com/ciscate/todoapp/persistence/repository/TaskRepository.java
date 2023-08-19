@@ -19,4 +19,6 @@ public interface TaskRepository extends JpaRepository <Task, Long> {
     @Query(value="UPDATE TASK SET FINISHED=true WHERE ID=:id", nativeQuery = true)
     void markTaskAsFinished(@Param("id") Long id);
 
+
+
 }

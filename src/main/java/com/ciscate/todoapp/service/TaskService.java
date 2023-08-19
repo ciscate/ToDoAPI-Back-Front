@@ -29,13 +29,6 @@ public class TaskService {
         return this.repository.save(task);
     }
 
-    public List<Task> getAll(){
-        return this.repository.findAll();
-    }
-
-    public List<Task> getAllByStatus(TaskStatus status){
-        return this.repository.findAllByTaskStatus(status);
-    }
 
     @Transactional
     public void updateTaskAsFinished(Long id){
@@ -47,6 +40,17 @@ public class TaskService {
         this.repository.markTaskAsFinished(id);
     }
 
+
+    public List<Task> getAll(){
+        return this.repository.findAll();
+    }
+
+    public List<Task> getAllByStatus(TaskStatus status){
+        return this.repository.findAllByTaskStatus(status);
+    }
+
+
+
     public void deleteById(long id){
         Optional<Task> optionalTask = this.repository.findById(id);
         if(optionalTask.isEmpty()){
@@ -55,5 +59,6 @@ public class TaskService {
 
         this.repository.deleteById(id);
     }
+
 
 }
